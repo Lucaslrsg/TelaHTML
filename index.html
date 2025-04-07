@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tela HTML</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <header>
-      <h1>Dashboard HTML</h1>
-    </header>
     <main>
       <section id="section1">
         <table class="tables" id="table1">
@@ -21,11 +19,11 @@
             <th>Custo Dia</th>
           </tr>
           <tr>
-            <td>56</td>
-            <td>50</td>
-            <td>423</td>
-            <td>13,2%</td>
-            <td>$48,23</td>
+            <td id="proposta_dia"></td>
+            <td id="contratos_dia"></td>
+            <td id="total_leads"></td>
+            <td id="conversao_dia"></td>
+            <td id="custo_dia"></td>
           </tr>
           <tr>
             <th>Adesão Boleto</th>
@@ -35,11 +33,11 @@
             <th>Instaladas Mês</th>
           </tr>
           <tr>
-            <td><strong>Mês:</strong> 56% | <strong>Dia:</strong> 54%</td>
-            <td><strong>Mês:</strong> 18% | <strong>Dia:</strong> 23%</td>
-            <td>1245</td>
-            <td>1124</td>
-            <td>822</td>
+            <td id="adesao_boleto"></td>
+            <td id="mensalidade_boleto"></td>
+            <td id="propostas_mes"></td>
+            <td id="contratos_mes"></td>
+            <td id="instaladas_mes"></td>
           </tr>
         </table>
 
@@ -48,113 +46,380 @@
             <th></th>
             <th>Origem da venda</th>
             <th></th>
-          </thead>
-          <tbody>
-            <tr class="trOrigem">
-              <th>Televendas</th>
-              <th>Formulários</th>
-              <th>Chat</th>
-            </tr>
-            <tr class="trOrigem">
-              <td><strong>Chamadas:</strong> 145</td>
-              <td><strong>Formulários:</strong> 20</td>
-              <td><strong>Leads Blip:</strong> 345</td>
-            </tr>
-            <tr class="trOrigem">
-              <td><strong>Pedidos:</strong> 25</td>
-              <td><strong>Pedidos:</strong> 8</td>
-              <td><strong>Pedidos:</strong> 56</td>
-            </tr>
-            <tr class="trOrigem">
-              <td><strong>Conversão:</strong> 17,2%</td>
-              <td><strong>Conversão:</strong> 40,0%</td>
-              <td><strong>Conversão:</strong> 16,2%</td>
-            </tr>
-          </tbody>
+            <tr>
+              <td><canvas id="barra" width="300" height="120"></canvas></td>
+              <td><canvas id="barra1" width="300" height="120"></canvas></td>
+              <td><canvas id="barra2" width="300" height="120"></canvas></td>
+            </tr> 
         </table>
 
         <table class="table" id="tableHorario">
           <tr>
             <th>Hora Atual</th>
-            <th>14:00 - 15:00</th>
-            <th>13:00 - 14:00</th>
-            <th>12:00 - 13:00</th>
+            <th>12:00 - 15:00</th>
             <th>Diário</th>
           </tr>
           <tr>
-            <td class="negativo"><strong>Leads:</strong>15/16</td>
-            <td class="positivo"><strong>Leads:</strong>21/19</td>
-            <td class="negativo"><strong>Leads:</strong>12/18</td>
-            <td class="positivo"><strong>Leads:</strong>20/20</td>
-            <td class="positivo"><strong>Leads:</strong>423/356/</td>
-          </tr>
-          <tr>
-            <td class="negativo"><strong>Pedidos:</strong>3/4</td>
-            <td class="positivo"><strong>Pedidos:</strong>7/5</td>
-            <td class="positivo"><strong>Pedidos:</strong>6/5</td>
-            <td class="negativo"><strong>Pedidos:</strong>4/6</td>
-            <td class="positivo"><strong>Pedidos:</strong>56/48</td>
-          </tr>
-          <tr>
-            <td class="positivo"><strong>Conversão:</strong> 20,0%</td>
-            <td class="positivo"><strong>Conversão:</strong> 33,3%</td>
-            <td class="positivo"><strong>Conversão:</strong> 50,0%</td>
-            <td class="positivo"><strong>Conversão:</strong> 20,0%</td>
-            <td class="negativo"><strong>Conversão:</strong> 13,0%</td>
+            <td><canvas id="line"></canvas></td>
+            <td><canvas id="line1"></canvas></td>
+            <td><canvas id="line2"></canvas></td>
           </tr>
         </table>
+
         <section id="section2">
           <table class="table" id="tableSupervisores">
             <tr>
-              <th>SUPERVISOR</th>
-              <th>PROPOSTA</th>
-              <th>CONTRATOS</th>
-              <th>MENSALIDADE BOLETO</th>
-              <th>CONVERSÃO</th>
+              <th id="usuario_01"></th>
+              <th id="usuario_02" style="text-transform: uppercase;"></th>
+              <th id="usuario_03"></th>
+              <th id="usuario_04"></th>
             </tr>
             <tr>
-              <td>ABILIO.BALTAZAR</td>
-              <td>13</td>
-              <td>10</td>
-              <td>7</td>
-              <td>26</td>
-            </tr>
-            <tr></tr>
-            <tr>
-              <td>ABILIO.BALTAZAR</td>
-              <td>13</td>
-              <td>10</td>
-              <td>7</td>
-              <td>26</td>
-            </tr>
-            <tr>
-              <td>ABILIO.BALTAZAR</td>
-              <td>13</td>
-              <td>10</td>
-              <td>7</td>
-              <td>26</td>
-            </tr>
-            <tr>
-              <td>ABILIO.BALTAZAR</td>
-              <td>13</td>
-              <td>10</td>
-              <td>7</td>
-              <td>26</td>
+              <td><canvas class="pizzas" id="pizza"></canvas></td>
+              <td><canvas class="pizzas" id="pizza1"></canvas></td>
+              <td><canvas class="pizzas" id="pizza2"></canvas></td>
+              <td><canvas class="pizzas" id="pizza3"></canvas></td>  
             </tr>
           </table>
-
-          <table class="table" id="tableEspera">
-            <tr>
-              <th>Chamadas Espera:</th>
-              <td>0</td>
-            </tr>
-            <tr>
-              <th>Chat Espera:</th>
-              <td>23</td>
-            </tr>
-          </table>
-        </section>  
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+        </section>
       </section>
     </main>
+
+    <script>
+      async function carregarGraficos(){
+
+      $dadosUsuarios = await fetch('http://localhost/api/app/usuarios.php');
+      $dadosChamadas = await fetch('http://localhost/api/app/chamadas.php');
+      $dadosVendas = await fetch('http://localhost/api/app/vendas.php');
+      $dadosFormularios = await fetch('http://localhost/api/app/formularios.php');
+
+      $resUsuarios = await $dadosUsuarios.json();
+      $resChamadas = await $dadosChamadas.json();
+      $resVendas = await $dadosVendas.json();
+      $resFormularios = await $dadosFormularios.json();
+
+
+
+      document.getElementById('proposta_dia').textContent = $resVendas.propostas[0].propostas;
+      document.getElementById('contratos_dia').textContent = '?';
+      document.getElementById('total_leads').textContent = $resVendas.leadsBlip[0].leadsBlip;
+      document.getElementById('conversao_dia').textContent = 'vendas/chamadas do dia';
+      document.getElementById('custo_dia').textContent = '?';
+      
+
+      document.getElementById('adesao_boleto').textContent = '?';
+      document.getElementById('mensalidade_boleto').textContent = '?';
+      document.getElementById('propostas_mes').textContent = $resVendas.propostas[0].propostas * 24;
+      document.getElementById('contratos_mes').textContent = '?';
+      document.getElementById('instaladas_mes').textContent = '?';
+
+      document.getElementById('usuario_01').textContent = $resUsuarios[2].nome;
+      document.getElementById('usuario_02').textContent = $resUsuarios[1].nome; 
+      document.getElementById('usuario_03').textContent = $resUsuarios[3].nome;
+      document.getElementById('usuario_04').textContent = $resUsuarios[4].nome;
+      
+
+     // $conversao = (parseFloat($resVendas[0].vendas) / parseFloat($resChamadas[0].chamadas)) * 100 ;
+      //  console.log('conversão: ' + $conversao)
+    
+      //--------------------Gráficos Pizza-------------------------------
+    const pizza = document.getElementById("pizza");
+    
+    new Chart(pizza, {
+      type: "pie",
+      data: {
+        labels: ["Contratos", "Proposta", "Mensalidade boleto", "Conversão"],
+        datasets: [
+          {
+            label: $resUsuarios[2].nome,
+            data: [10, 13, 12, 14],
+            borderWidth: 1,
+          },
+        ],
+      },
+    });
+      const pizza1 = document.getElementById("pizza1");
+      new Chart(pizza1, {
+        type: "pie",
+        data: {
+          labels: ["Contratos", "Proposta", "Mensalidade boleto", "Conversão"],
+          datasets: [
+            {
+              label: $resUsuarios[1].nome,
+              data: [15, 10, 15.23, 18.90],
+              borderWidth: 1,
+            },
+          ],
+        },
+      });
+      const pizza2 = document.getElementById("pizza2");
+      new Chart(pizza2, {
+        type: "pie",
+        data: {
+          labels: ["Contratos", "Proposta", "Mensalidade boleto", "Conversão"],
+          datasets: [
+            {
+              label: $resUsuarios[3].nome,
+              data: [5, 7, 14.56, 8.9],
+              borderWidth: 1,
+            },
+          ],
+        },  
+      });
+      const pizza3 = document.getElementById("pizza3");
+      new Chart(pizza3, {
+        type: "pie",
+        data: {
+          labels: ["Contratos", "Proposta", "Mensalidade boleto", "Conversão"],
+          datasets: [
+            {
+              label: $resUsuarios[4].nome,
+              data: [20, 26, 17.23, 16.53],
+              borderWidth: 1,
+            },
+          ],
+        },
+      });
+
+      
+      //-----------------------Gráfico Barra------------------------------
+
+      
+      const ctx = document.getElementById("myChart");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Chamadas", "Chat"],
+          datasets: [ 
+            {
+              label: "em Espera",
+              data: [$resChamadas[0].chamadas, $resChamadas[0].chamadas],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    
+
+      const barra = document.getElementById("barra");
+      new Chart(barra, {
+        type: "bar",  
+        data: {
+          labels: ["Chamadas", "Pedidos","Conversão"],
+          datasets: [ 
+            {
+              label: "Televendas",
+              data: [$resChamadas[0].chamadas * 10, $resVendas.pedidos[0].pedidos,($resVendas.vendas[0].vendas/ ($resChamadas[0].chamadas * 20)) * 100],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      
+      const barra1= document.getElementById("barra1");
+      new Chart(barra1, {
+        type: "bar",
+        data: {
+          labels: ["Formulários", "Pedidos","Conversão"],
+          datasets: [ 
+            {
+              label: "Formulários",
+              data: [$resFormularios[0].formularios, $resVendas.pedidos[0].pedidos,($resVendas.vendas[0].vendas/ ($resFormularios[0].formularios * 20)) * 100],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      
+      new Chart(barra2, {
+        type: "bar",
+        data: {
+          labels: ["Leads Blip", "Pedidos","Conversão"],
+          datasets: [
+            {
+              label: "Chat",
+              data: [30, $resVendas.pedidos[0].pedidos, ($resVendas.vendas[0].vendas/ ($resVendas.leadsBlip[0].leadsBlip * 11)) * 100],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+      
+      //--------------------Gráficos linha----------------------------//
+      const line = document.getElementById("line");
+      new Chart(line, {
+        type: "line",
+        data: {
+          labels: ["15:00","15:10","15:20"],
+          datasets: [ 
+            {
+              label: "Conversão",
+              data: [20, 21, 22],
+              fill: false,
+              borderColor: "rgb(0100, 200, 100)",
+              tension: 0.1,
+            },
+            {
+              label: "Pedidos",
+              data: [0, 3, 4],
+              fill: false,
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+            {
+              label: "Meta Pedidos",
+              data: [4, 4, 4],
+              fill: false,
+              borderDash: [5,5],
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+            {
+              label: "Leads",
+              data: [15,15,17],
+              fill: false,
+              borderColor: "rgb(54, 162, 235)",
+              tension: 0.1,
+            },
+            {
+              label: "Meta Leads",
+              data: [16, 16, 16],
+              fill: false,
+              borderDash: [5,5],
+              borderColor: "rgb(54, 162, 235)",
+              tension: 0.1,
+            }
+          ],
+        },
+      });
+
+      const line1 = document.getElementById("line1");
+      new Chart(line1, {
+        type: "line",
+        data: {
+          labels: ["12:00","13:00","14:00","15:00"],
+          datasets: [ 
+            {
+              label: "Conversão",
+              data: [20, 25, 50, 33],
+              fill: false,
+              borderColor: "rgb(0100, 200, 100)",
+              tension: 0.1,
+            },
+            {
+              label: "Pedidos",
+              data: [0, 3, 4],
+              fill: false,
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+            {
+              label: "Meta Pedidos",
+              data: [4, 4, 4],
+              fill: false,
+              borderDash: [5,5],
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+            {
+              label: "Leads",
+              data: [20, 20,12,21],
+              fill: false,
+              borderColor: "rgb(54, 162, 235)",
+              tension: 0.1,
+            },
+            {
+              label: "Meta Leads",
+              data: [20, 20, 18, 19],
+              fill: false,
+              borderDash: [5,5],
+              borderColor: "rgb(54, 162, 235)",
+              tension: 0.1,
+            }
+          ],
+        },
+      });
+      const line2 = document.getElementById("line2");
+      new Chart(line2, {
+        type: "line",
+        data: {
+          labels: ["HOJE","HOJE"],
+          datasets: [ 
+            {
+              label: "Conversão", 
+              data: [13,13],
+              fill: false,
+              borderColor: "rgb(0100, 200, 100)",
+              tension: 0.1,
+            },
+            {
+              label: "Pedidos",
+              data: [56,56],
+              fill: false,
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+            {
+              label: "Meta Pedidos",
+              data: [48,48],
+              fill: false,
+              borderDash: [5,5],
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+            {
+              label: "Leads",
+              data: [423,423],
+              fill: false,
+              borderColor: "rgb(54, 162, 235)",
+              tension: 0.1,
+            },
+            {
+              label: "Meta Leads",
+              data: [356, 356],
+              fill: false,
+              borderDash: [5,5],
+              borderColor: "rgb(54, 162, 235)",
+              tension: 0.1,
+            }
+          ],
+        },
+      });
+
+      window.addEventListener('DOMContentLoaded', carregarGraficos());
+    </script>
   </body>
 </html>

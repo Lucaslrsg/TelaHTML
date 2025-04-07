@@ -1,7 +1,6 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  overflow: hidden;
 }
 
 main,header {
@@ -13,15 +12,15 @@ main,header {
 #section1 {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  width: 80%;
+  gap: 1.2rem;
+  width: 85%;
 }
 
 #section2{
   display: flex;
   flex-direction: row;
   align-items: self-end;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 table {
@@ -31,7 +30,8 @@ table {
 
 th, td {
   text-align: center;
-  padding: 3.5px;
+  padding: none;
+  border: none;
 }
 
 th {
@@ -42,16 +42,6 @@ th {
 tr td{
   background-color: #f2f2f2;
 } 
-
-.negativo {
-  background-color: #d9534f;
-  color: white;
-}
-
-.positivo {
-  background-color: #5cb85c;
-  color: white;
-}
 
 #tableSupervisores th{
   background-color: #222;
@@ -68,6 +58,17 @@ thead th {
   border-radius: 8px;
 }
 
-#tableSupervisores{
-  width: 70%;
+canvas{
+  width: 330px !important;
+  height: 165px !important;
+}
+
+.pizzas{
+  width: 245px !important;
+  height: 190px !important;
+}
+
+#myChart{
+  width:200px !important;
+  height: 100px!important;
 }
